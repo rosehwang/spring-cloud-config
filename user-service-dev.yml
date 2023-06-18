@@ -1,0 +1,23 @@
+spring:
+  datasource:
+     #driver-class-name: org.h2.Driver
+     #url: jdbc:h2:mem:testdb
+     #username: sa
+     #password: "{cipher}AQAChv8q6+vkJYVH6TZHy6lrCpjecdyOdD8aw4LS5R5gROI2HTl0P54lIHw+XeAmAtHj09O3T8RYBo6aAJwU805t9KVqtqsg6tQ3km1kfcEmrADBu0r0++mcotnt32vfT/jjV3UPx5PElqFKtbdZtFQ7Oiu6er16kdqKnKwhqyxi1xaHkPIuQ2wfirm0VihI4jABATTLJORPjWjlbdY4a9tQ9wASP2WpM4TP/N0GGojL2VvFwyovyBTeZcoeBdr50uUG0YCwLGy4oSHhvbdwSWRmD0GzjjDpAuTxneBdLskhHvMTjrJVsWEzqZJm1iW0uT8Fe/Q78ngnTmXM7ND4g4r0Akji9Cebb2dfDMPgRaEdJnA6OuRFEks803VRDa385xM="
+    # #{cipher} 뒤에가 암호값이라는걸 의미
+     url: jdbc:mysql://localhost:3306/mydb?serverRsaPublicKeyFile=true
+     username: root
+     password: "{cipher}AQBichXiaR92TlMTHP3gXrHd6okzzoFReCceYWd+7p6labmDP/Lk5qnUOQJQjNsaXJzxixobqI3QqhHtQP4n8cCQQUg+YfbMT8Lq4o1UBaNqI4ULd3R7aPHNEwDbi80uGly402QxPTsBnBR9vT1ToZ1IWvG9KifHYBFeDTibuCM7S7VYhFupn8L4Yqr4mN1Niq40QRsE3IPlvtFsrA1VeTL/2baj3V0j5LTq5tCYGTYivxQzykdGLatvEj7cVA9YQioi8fQ8ic2J8BJ34Yr/f4RdLdKtEp2FrYUBMeNxCxKtF595Tdg4gYsOl/+YAJyOBOZ8CzvO6N7umBcWh9250EjCsgZ97uJq8btim342LD6/SDYg1zI67BzvVXstjynoOp4="
+     driver-class-name: com.mysql.cj.jdbc.Driver
+  #임의 값
+gateway:
+  ip: 172.16.100.174
+  
+token:
+  expiration_time: 86400000
+  secret: "{cipher}AQAgR3/oUdebsHcpf5+hNT1bAb2fpoJMPx98VKc6EVT64xzNSpASeuAXlXmOjw9zAz17eNAVtUqoiuqIYFmmMPVdh7oRNfcDIl8q1RoTE3WSeLRPPMZZpQawgS5aQ6YD+0BpvK7sE34365yDXULPQOfgW+TjbYydQPY4fHKjMH0Dss6DLLmkj10B9JrjWSRIvNdAM3GOAOTvc4jwBK2sqyD7821i8ZuzLSeUkj4mzbpnS4Pgj+HsrapCxeD5TFyBDa4/DAV1mef+qlbEf1fT5SARss1WvxvUaoJOJ9uwONV5ti5X+K6cXWATwnLuLmulyeEIGMNpWAUy7blgFKUmPjK+ZkDT0U1KeFji5i1gpfzPhOKC8LZzEXNTpn9pRwWN/KDSgllcSrzTVKDM2SIa3v0g"
+
+order_service:
+  url: http://ORDER-SERVICE/order-service/%s/orders
+  exception:
+    orders_is_empty: User's orders is empty

@@ -1,0 +1,28 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://185.213.243.3:5432/postgres
+    username: postgres
+    password: 1234
+    pool:
+      max-size: 100
+  config:
+    import: "optional:configserver:"
+  main:
+    allow-bean-definition-overriding : true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
+# actuator 추가
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, busrefresh, info, metrics, prometheus,env
+      
